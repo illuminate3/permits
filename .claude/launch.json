@@ -1,0 +1,52 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "permit-preflight",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "app",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5001"
+      ],
+      "port": 5001
+    },
+    {
+      "name": "permit-portal",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "app",
+        "run",
+        "dev"
+      ],
+      "env": {
+        "NEXT_DIST_DIR": ".next-portal"
+      },
+      "port": 5002,
+      "autoPort": true
+    },
+    {
+      "name": "permit-preflight-check",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "app",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "5003"
+      ],
+      "env": {
+        "NEXT_DIST_DIR": ".next-check"
+      },
+      "port": 5003,
+      "autoPort": true
+    }
+  ]
+}

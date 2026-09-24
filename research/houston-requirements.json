@@ -1,0 +1,983 @@
+{
+  "meta": {
+    "scenario": "Existing retail (Group M) storefront in City of Houston converted to ~40-seat coffee shop (espresso, pastries, possibly sandwiches)",
+    "researchedOn": "2026-09-23",
+    "codeBasis": "2021 IBC/IEBC/IFC/IECC, 2021 UPC/UMC, 2023 NEC with Houston amendments (effective 2024-01-01); 2012 TAS; TFER (25 TAC 228)",
+    "disclaimer": "Research aid for a demo; not legal or code-consulting advice. Verify with the Houston Permitting Center before relying on any item."
+  },
+  "requirements": [
+    {
+      "id": "co-required-for-change-of-occupancy",
+      "category": "occupancy",
+      "title": "New Certificate of Occupancy required for change of occupancy",
+      "agency": "Houston Public Works - Houston Permitting Center, Building Code Enforcement (Occupancy Inspections)",
+      "appliesWhen": "Any lease space whose occupancy classification changes (e.g., retail Group M to restaurant Group A-2 or B), or whose square footage / occupant load changes.",
+      "requirement": "A lease space may not be occupied, and a change of occupancy may not be made, until the building official issues a separate Certificate of Occupancy for that lease space. Houston's CO page states plans and permits must be approved to obtain a new CO for the new use/occupancy. The CO lists the use/occupancy group, construction type, design occupant load, and whether fire alarm / sprinklers are provided and required.",
+      "submittalItems": [
+        "Approved building permit + plans for the new use",
+        "Passed final inspections (building, MEP, fire, health)",
+        "CO request after all inspections complete"
+      ],
+      "citation": "Houston Amendments to 2021 IBC Sec. 111.1 and 111.2; Houston Amendments to 2021 IEBC Sec. 110.1 and 1001.3",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/sites/g/files/nwywnm431/files/2024-11/2021%20IBC%20Amendments%20(4).pdf",
+      "feeNote": "Certificate of Occupancy $94.00; CO/Life Safety Inspection $537.12 first story (2026 BCE fee schedule). See fees[].",
+      "confidence": "high",
+      "notes": "Also confirmed on HPC CO page (https://www.houstonpermittingcenter.org/hpwcode1106) and Occupancy Inspections page (https://www.houstonpermittingcenter.org/building-code-enforcement/occupancy-inspections). IEBC 1001.3 (Houston): CO is issued where a change of occupancy results in a different occupancy classification per the IBC."
+    },
+    {
+      "id": "co-application-and-posting",
+      "category": "occupancy",
+      "title": "CO application, inspection and posting",
+      "agency": "Houston Permitting Center - Occupancy Inspections",
+      "appliesWhen": "Requesting the Certificate of Occupancy for the new coffee shop.",
+      "requirement": "Apply using Form CE-1045A emailed to occupancy.inspections@houstontx.gov; pay via iPermits link; an inspection is scheduled; CO is emailed with QR code. Space must have power for the proposed use, no open permits from other sections, and inspector access to all areas incl. attic/above-ceiling/roof. The original CO must be posted in a conspicuous place on the premises.",
+      "submittalItems": [
+        "Form CE-1045A (Certificate of Occupancy application)",
+        "Lease agreement (if applicable)",
+        "Business address/contact, approx. square footage and floor count",
+        "Current and previous business type"
+      ],
+      "citation": "HPC 'Certificate of Occupancy' service page; Houston IBC 111.5 (Posting)",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/hpwcode1106",
+      "feeNote": "HPC page lists $94.00 to $537.12; re-inspection $112.64 on the service page vs $94.00 in the 2026 fee schedule (conflict - see NOTES).",
+      "confidence": "high",
+      "notes": "Remodels/repairs usually receive a Certificate of Compliance rather than a CO (Commercial Permitting 101). Occupancy Inspections page: if code discrepancies are found, a report is issued within one week and the applicant has 180 days to obtain permits and correct."
+    },
+    {
+      "id": "occupancy-classification-a2-vs-b",
+      "category": "occupancy",
+      "title": "Classify the coffee shop: Group A-2, or Group B if occupant load < 50",
+      "agency": "Houston Permitting Center - Building Code Enforcement",
+      "appliesWhen": "Always; drives sprinkler, alarm, egress, fixture and CO content.",
+      "requirement": "Restaurants, cafeterias and similar dining facilities (including associated commercial kitchens) are Group A-2 (IBC 303.3). A building or tenant space used for assembly purposes with an occupant load of less than 50 persons is classified as Group B (IBC 303.1.1). The code analysis sheet must state the occupancy classification.",
+      "submittalItems": [
+        "Code analysis sheet stating occupancy group and occupant load calculation",
+        "Floor plan identifying use of each room"
+      ],
+      "citation": "2021 IBC Sec. 303.1.1 and 303.3 (Houston Building Code 2021)",
+      "sourceUrl": "https://up.codes/viewer/houston/ibc-2021/chapter/3/occupancy-classification-and-use",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Houston currently enforces the 2021 IBC with Houston amendments (effective Jan 1, 2024). The <50 test is on calculated occupant load (Table 1004.5), NOT seat count - see occupant-load-calculation."
+    },
+    {
+      "id": "occupant-load-calculation",
+      "category": "occupancy",
+      "title": "Occupant load is calculated by floor area, not by seat count",
+      "agency": "Houston Permitting Center - Building Code Enforcement",
+      "appliesWhen": "Always.",
+      "requirement": "Design occupant load is computed with IBC Table 1004.5 load factors: assembly unconcentrated (tables and chairs) 15 sq ft net per person; commercial kitchens 200 sq ft gross per person; business areas 150 sq ft gross. A '40-seat' shop can exceed 49 occupants (e.g., ~750+ net sq ft of table/chair area alone reaches 50), which makes it Group A-2 rather than B.",
+      "submittalItems": [
+        "Occupant load table by room/area on the code analysis sheet"
+      ],
+      "citation": "2021 IBC Table 1004.5",
+      "sourceUrl": "https://up.codes/viewer/houston/ibc-2021/chapter/10/means-of-egress",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "The demo should compute OL from the submitted areas and flag if seat count and calculated OL disagree."
+    },
+    {
+      "id": "houston-code-editions",
+      "category": "building",
+      "title": "Design to Houston's currently adopted construction codes",
+      "agency": "Houston Permitting Center - Building Code Enforcement",
+      "appliesWhen": "All plans submitted for permit.",
+      "requirement": "Houston's adopted codes (effective January 1, 2024, Ord. 2023-907): 2021 IBC, 2021 IEBC, 2021 IFC, 2021 IECC (or ASHRAE 90.1-2019), 2021 Uniform Plumbing Code, 2021 Uniform Mechanical Code, 2023 NEC - each with Houston amendments.",
+      "submittalItems": [
+        "Code analysis sheet citing the Houston construction codes"
+      ],
+      "citation": "HPC 'Construction Code Amendments' page; Commercial Permitting 101",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/construction-code-modernization/code-amendment",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Houston uses UPC (plumbing) and UMC (mechanical), not IPC/IMC. No newer (2024) code adoption was found as of Sept 2026 - re-check before demo."
+    },
+    {
+      "id": "building-permit-electronic-submittal",
+      "category": "building",
+      "title": "Commercial building permit via iPermits + ProjectDox",
+      "agency": "Houston Permitting Center - Commercial Plan Review",
+      "appliesWhen": "Tenant build-out / remodel / change of use.",
+      "requirement": "Complete the electronic building permit application in iPermits (address verification first if needed), receive a ProjectDox invitation, upload plans and documents, pay the non-refundable plan review fee (25% of estimated building permit fee), then pay the remaining permit fee at approval. Plans must be construction-ready (not marked 'Preliminary' or 'Not for Construction').",
+      "submittalItems": [
+        "iPermits building permit application (one per lease space/address) with valuation incl. labor and design",
+        "Complete plan set uploaded to ProjectDox",
+        "Declaration in Support of Application (CE-1380/CE-1381)",
+        "Form CE-1105 Commercial Prerequisite Checklist"
+      ],
+      "citation": "Commercial Permitting 101 (HPC); Form CE-1105 (rev. Aug 2026)",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download",
+      "feeNote": "Plan review fee = 25% of estimated building permit fee; building permit fee from commercial valuation table (2026 fee schedule).",
+      "confidence": "high",
+      "notes": "Commercial plan review page: https://www.houstonpermittingcenter.org/building-code-enforcement/commercial-plan-review (commercial.planreview@houstontx.gov, 832.394.8810)."
+    },
+    {
+      "id": "ce-1105-prerequisite-checklist",
+      "category": "building",
+      "title": "Commercial Prerequisite Checklist (Form CE-1105) with required reviews marked",
+      "agency": "Houston Permitting Center - Commercial Plan Review",
+      "appliesWhen": "Every commercial submittal.",
+      "requirement": "All commercial submittals must include the completed CE-1105 plus all applicable documents before they are considered complete. The form lists required reviews: Planning & Development, Utility Analysis, Utility Infrastructure, Storm Drainage, Floodplain, Traffic, Health, Fire Marshal, Fire Access Road, High Pile/Hazmat, Structural, Mechanical, Plumbing, Electrical. Each item must be marked with sheet number or 'Not Applicable'.",
+      "submittalItems": [
+        "Completed Form CE-1105 uploaded to ProjectDox",
+        "Sheet references for each applicable prerequisite"
+      ],
+      "citation": "Form CE-1105 Building Code Enforcement Commercial Prerequisite Checklist (revised August 2026)",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Best single source for the demo's 'missing items' checklist. Omitted items 'will extend the permit process.'"
+    },
+    {
+      "id": "architectural-code-analysis-and-schedules",
+      "category": "building",
+      "title": "Code analysis sheet, room uses, and door/hardware/glazing/wall schedules",
+      "agency": "Houston Permitting Center - Commercial Plan Review",
+      "appliesWhen": "Architectural plans for any commercial permit.",
+      "requirement": "Plans must include a code analysis sheet (scope of work, construction type, fire rating, occupancy classification, fire suppression/alarms, specific uses, and compliance with current Houston codes), the use/occupancy of each room on the floor plan, and door & hardware, glazing, and wall schedules with a wall legend.",
+      "submittalItems": [
+        "Code analysis sheet",
+        "Floor plan with room uses",
+        "Door & hardware schedule",
+        "Glazing schedule",
+        "Wall schedule/legend"
+      ],
+      "citation": "Form CE-1105, 'Architectural and Structural Plans' items 1-3",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "'Code Analysis' is listed as a frequently missed prerequisite in Commercial Permitting 101."
+    },
+    {
+      "id": "sealed-drawings-texas-practice-acts",
+      "category": "building",
+      "title": "Sheets sealed per Texas Architectural and Engineering Practice Acts",
+      "agency": "Houston Permitting Center; Texas Board of Architectural Examiners; Texas Board of Professional Engineers and Land Surveyors",
+      "appliesWhen": "All commercial plan sheets.",
+      "requirement": "Each sheet shall be sealed, signed and dated as required by the Texas Architectural and Engineering Practice Acts, or where specifically required by the Building Official. Architect exemption (Occ. Code 1051.606): privately owned commercial building not exceeding two stories or 20,000 sq ft, and alterations unless they involve a substantial structural or exitway change. Engineering exemption (Occ. Code 1001.056): private building with total floor area not more than 5,000 sq ft and no clear span greater than 24 ft on the narrow side.",
+      "submittalItems": [
+        "Architect seal where required",
+        "PE seal on structural/MEP where required",
+        "Sealed/signed engineered structural plans (frequently missed)"
+      ],
+      "citation": "Form CE-1105 Arch/Structural item 4; Tex. Occ. Code 1051.606; Tex. Occ. Code 1001.056",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "medium",
+      "notes": "Statute text read on texas.public.law (https://texas.public.law/statutes/tex._occ._code_section_1051.606; https://texas.public.law/statutes/tex._occ._code_section_1001.056), not the official capitol.texas.gov site. Whether a seal is required depends on building size and scope; the demo should flag 'seal status' as needing confirmation rather than auto-pass. Houston may require seals by local policy ('where specifically required by the Building Official')."
+    },
+    {
+      "id": "mep-plans-change-of-occupancy",
+      "category": "building",
+      "title": "Mechanical, electrical and plumbing plans required for change of occupancy",
+      "agency": "Houston Permitting Center - Building Code Enforcement (Mechanical, Electrical, Plumbing reviews)",
+      "appliesWhen": "Change of occupancy; new/changed equipment, ducts, fixtures or loads.",
+      "requirement": "Mechanical plans: renovations involving change of occupancy, new/changed equipment, fire/smoke dampers, or new/replaced ducts. Electrical plans (1-line diagram, load analysis, panel schedule): new services, added loads, or changes of occupancy. Plumbing plans (riser diagram and floor plan): new piping, new fixtures, and/or change in use or occupancy.",
+      "submittalItems": [
+        "Mechanical plans (incl. kitchen exhaust if any)",
+        "Electrical one-line diagram",
+        "Electrical load analysis",
+        "Panel schedule(s)",
+        "Plumbing riser diagram",
+        "Plumbing floor plan"
+      ],
+      "citation": "Form CE-1105 (Mechanical Plans, Electrical Plans, Plumbing Plans)",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "Trade permit fees per 2026 fee schedule (e.g., plumbing fixtures $34.24 for 1-3, $11.41 each additional; HVAC 2.0% of valuation + $47.00).",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "energy-comcheck",
+      "category": "building",
+      "title": "Energy code compliance report (COMcheck) with inspection checklist",
+      "agency": "Houston Permitting Center - Commercial Plan Review",
+      "appliesWhen": "Tenant improvements and existing building work (unless exempt, stated on plans).",
+      "requirement": "Provide an Energy Code Software Report with completed COMcheck Inspection Checklist; where scope is exempt, indicate on the plans why.",
+      "submittalItems": [
+        "COMcheck report",
+        "COMcheck inspection checklist"
+      ],
+      "citation": "Form CE-1105 'Energy Code Software Report'; 2021 IECC (Houston amendments)",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "asbestos-survey",
+      "category": "building",
+      "title": "Asbestos survey for modifications to existing buildings",
+      "agency": "Houston Permitting Center - Commercial Plan Review",
+      "appliesWhen": "Any modification of an existing building (a retail-to-coffee-shop remodel qualifies).",
+      "requirement": "Asbestos Survey is required for modifications to existing buildings and is uploaded as a plan attachment.",
+      "submittalItems": [
+        "Asbestos survey report"
+      ],
+      "citation": "Form CE-1105 'Asbestos Survey'",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Also listed under Application & Plan Requirements in Commercial Permitting 101."
+    },
+    {
+      "id": "utility-availability-wcr",
+      "category": "building",
+      "title": "Water/sewer availability letters and Wastewater Capacity Reservation (WCR)",
+      "agency": "Houston Public Works - Utility Analysis / Impact Fee Administration",
+      "appliesWhen": "Change in occupancy and/or increase or decrease in water/wastewater capacity (restaurant use typically increases demand).",
+      "requirement": "Sewer and water availability letters are required for new construction, change in occupancy, and/or capacity changes; upload to ProjectDox 'Utility Letters' subfolder. Where required, apply for the WCR separately in iPermits (preferably before plan submittal), pay impact fees, and submit the impact fee receipt and WCR letter with plans.",
+      "submittalItems": [
+        "Water/sewer availability letter (or allowed short form)",
+        "WCR letter",
+        "Impact fee receipt or exemption form"
+      ],
+      "citation": "Form CE-1105 'Letters of Availability'; Commercial Permitting 101 (WCR, Utility Analysis)",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "Impact fees vary; amount not determined in this research.",
+      "confidence": "high",
+      "notes": "'Water and Wastewater Availability Letters' are the first item on HPC's 'Frequently Missed Plan Review Prerequisites' list (Commercial Permitting 101)."
+    },
+    {
+      "id": "site-plan-traffic-change-of-use",
+      "category": "zoning-land-use",
+      "title": "Site plan and traffic/civil review for change of use",
+      "agency": "Planning & Development Department; Houston Public Works - Traffic",
+      "appliesWhen": "Projects involving a change of use or occupancy group.",
+      "requirement": "Site plans are required for projects involving a change of use or occupancy group (property lines, easements, building setback lines, existing/proposed structures, building footprint with distances to property lines). Traffic/Civil plans are required for any change in use or change in occupancy; an approved Access Management Form may be required.",
+      "submittalItems": [
+        "Site plan",
+        "Traffic/civil plans or Traffic Form OCE-0001",
+        "Access Management Form (if required)"
+      ],
+      "citation": "Form CE-1105 (Planning & Development 'Site Plan'; 'Traffic/Civil Plans')",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Commercial Permitting 101 also notes platting 'may be required if there is a change of use or occupancy for the property.'"
+    },
+    {
+      "id": "one-stop-not-eligible",
+      "category": "building",
+      "title": "Retail-to-restaurant conversion does not qualify for One-Stop review",
+      "agency": "Houston Permitting Center - One Stop Plan Review",
+      "appliesWhen": "Choosing the review track.",
+      "requirement": "One-Stop excludes: changes in occupancy to a more restrictive use, first-time buildouts, plans requiring Fire Marshal or Health review, projects >5,000 sq ft, Type I commercial kitchen ventilation / kitchen exhaust, and (for M occupancies) grease traps or cooking equipment and walk-in coolers/freezers. One-Stop also does not issue COs. Expect full Commercial Plan Review.",
+      "submittalItems": [],
+      "citation": "Form CE-1042 One Stop Plan Review Qualifications (rev. January 2024), Sec. C Program Exclusions",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1936/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Useful as a 'routing' rule in the demo."
+    },
+    {
+      "id": "trade-permits-and-separate-fire-permits",
+      "category": "building",
+      "title": "Licensed trade permits; fire alarm, sprinkler, signs, e-locks permitted separately",
+      "agency": "Houston Permitting Center",
+      "appliesWhen": "After building permit is sold.",
+      "requirement": "Building permit may be bought by owner/agent/contractor; electrical, mechanical and plumbing permits are purchased by TDLR/TSBPE-licensed contractors registered with the City after the building permit is sold. Fire alarm and sprinkler contractors must be licensed with the State Fire Marshal's Office and registered with the City. Fire Alarm, Fire Sprinkler, Fire Access Gates, Signs, E-Locks and Swimming Pools must be submitted and permitted separately (sprinkler, fire alarm and e-lock plans may not be deferred).",
+      "submittalItems": [
+        "Separate fire alarm submittal (if required/proposed/existing)",
+        "Separate sprinkler submittal (if required/proposed/existing)",
+        "Separate sign permit"
+      ],
+      "citation": "Commercial Permitting 101 (Licensing & Registration; Deferred Submittals); Form CE-1105 closing note",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download",
+      "feeNote": "See fire protection/alarm fees in fees[].",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "deed-restriction-declaration",
+      "category": "zoning-land-use",
+      "title": "Deed restriction declaration (CE-1380 / CE-1381)",
+      "agency": "Houston Permitting Center; City of Houston Legal Department (deed restriction enforcement)",
+      "appliesWhen": "Most building permit applications.",
+      "requirement": "Houston is not zoned, but the City helps enforce recorded deed restrictions. The Declaration in Support of Application for City of Houston Building Permit must be signed by the property owner (CE-1380 individual / CE-1381 entity), uploaded to iPermits, and is validated against HCAD records; if ownership does not match HCAD, upload proof of ownership. Applicant should verify the project does not violate deed restrictions (copies from the county clerk).",
+      "submittalItems": [
+        "Signed CE-1380 or CE-1381 declaration",
+        "Proof of ownership if different from HCAD"
+      ],
+      "citation": "Form CE-1105 'Declaration in Support of Application'; Commercial Permitting 101; Legal Dept Deed Restrictions FAQ",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1811/download",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Legal Dept FAQ: https://www.houstontx.gov/legal/dr-faq.html ('The City of Houston is not zoned...'). Do not claim 'Houston has zoning'."
+    },
+    {
+      "id": "parking-change-of-use",
+      "category": "zoning-land-use",
+      "title": "Off-street parking for restaurant use (Chapter 26, Art. VIII)",
+      "agency": "Planning & Development Department",
+      "appliesWhen": "Change of use classification (retail to food & beverage) with a building permit.",
+      "requirement": "Parking is required with a building permit for any change of use classification. Sec. 26-492 ratios per 1,000 sq ft GFA: Retail store 4.0; Take-out restaurant 4.0; Dessert shop 6.0; Small restaurant 8.0; Neighborhood restaurant 9.0; Restaurant 10.0 (plus outdoor decks/patios/seating in excess of 15% of GFA for dessert shop and restaurant categories). A grandfathered building may not redevelop into a Restaurant or Dessert Shop classification without providing enough parking to meet the ordinance. Reductions/exceptions: Market-Based Parking Area (100%), TOD streets (100%/50%), bicycle parking (10%), historic buildings (40%), modification up to 5 spaces, shared/off-site parking, variance.",
+      "submittalItems": [
+        "Parking calculation on site plan (use classification, GFA, required vs provided spaces)",
+        "Documentation of any reduction (MBPA, bike, shared parking, variance)"
+      ],
+      "citation": "Houston Code of Ordinances Ch. 26, Art. VIII, Sec. 26-492 (table), 26-494, 26-471, 26-497, 26-498, 26-503, 26-504",
+      "sourceUrl": "https://www.houstontx.gov/planning/DevelopRegs/docs_pdfs/Requirements%20for%20Use%20Classifications.pdf",
+      "feeNote": "",
+      "confidence": "medium",
+      "notes": "Ratios read from a Municode print of Sec. 26-492 hosted on houstontx.gov (printed 9/19/2014; Ord. 2013-208). Reduction list from Planning's 2021 'Off-Street Parking' guide (https://www.houstontx.gov/planning/docs_pdfs/Parking-Requirements-20210604.pdf). Grandfathering rule from the 2011 Summary of Amendments (https://www.houstontx.gov/planning/DevelopRegs/offstreet/docs_pdfs/Chapter26_SummaryAmendments.pdf). Which food & beverage subclass a coffee shop falls into depends on Sec. 26-471 definitions (not verified). Re-verify current Municode text before relying on numbers."
+    },
+    {
+      "id": "health-plan-review",
+      "category": "health",
+      "title": "Houston Health food establishment plan review",
+      "agency": "Houston Health Department - Consumer Health Services (plan checking at Houston Permitting Center)",
+      "appliesWhen": "Remodeling an existing space not previously a food establishment (retail to coffee shop), or construction/expansion/wall or floor-mounted equipment changes.",
+      "requirement": "Plans are required. Plan specifications shall include the proposed layout, arrangement, construction materials, type of fixed equipment (with elevations), menu, and facilities. Submit digitally through ProjectDox (Health is one of the routed reviews on CE-1105: 'provide complete equipment plan with manufacturers specs/samples').",
+      "submittalItems": [
+        "Floor plan with proposed equipment layout",
+        "Equipment specifications / manufacturer cut sheets (NSF or equivalent)",
+        "Elevations of all food service equipment and plumbing fixtures",
+        "Room-finish schedule incl. material types and colors",
+        "Menu",
+        "For remodels: existing, demolition and proposed layouts",
+        "HACCP plan/variance if doing specialized processes (e.g., ROP, sous vide, time as a public health control)"
+      ],
+      "citation": "HHD 'Opening a Food Establishment'; HHD Food Inspection Plan Review Checklist (Rev. 04/18/2022); Form CE-1105 'Health Plans'",
+      "sourceUrl": "https://www.houstonhealth.org/services/permits/food-permits/opening-food-establishment",
+      "feeNote": "Health plan review fee amount: not found.",
+      "confidence": "high",
+      "notes": "Health plan checking phone 832-394-8848. The checklist (https://www.houstonhealth.org/media/36/download) still cites Houston Code Chapter 20 sections, which were repealed effective Sept 1, 2025 (see houston-food-rules-tfer)."
+    },
+    {
+      "id": "health-sinks",
+      "category": "health",
+      "title": "Three-compartment sink, hand sinks, and mop/utility sink",
+      "agency": "Houston Health Department",
+      "appliesWhen": "Food establishment plans.",
+      "requirement": "Provide a three-compartment sink for manual warewashing (each compartment at least 15\" W x 15\" L x 12\" D, large enough to immerse utensils) with drainboards; hand-washing sinks convenient to food prep, dispensing and utensil-washing areas (HHD guidance: no more than 20 ft travel without passing through a door), supplied with water at least 100 F; at least one utility (mop) sink or curbed cleaning facility with floor drain.",
+      "submittalItems": [
+        "Plumbing fixture/equipment plan showing 3-compartment sink with dimensions and drainboards",
+        "Hand sink locations",
+        "Mop/utility sink location"
+      ],
+      "citation": "HHD Food Inspection Plan Review Checklist items 3, 4, 11",
+      "sourceUrl": "https://www.houstonhealth.org/media/36/download",
+      "feeNote": "",
+      "confidence": "medium",
+      "notes": "Checklist dimensions derive from repealed Chapter 20; HHD's currently linked checklist still shows them. Under TFER/FDA Food Code equivalent requirements exist but exact section numbers were not verified here."
+    },
+    {
+      "id": "health-finishes-lighting-ventilation",
+      "category": "health",
+      "title": "Finishes, lighting and ventilation in food areas",
+      "agency": "Houston Health Department",
+      "appliesWhen": "Food prep, storage, warewashing and toilet areas.",
+      "requirement": "Floors smooth, durable (sealed concrete, terrazzo, ceramic tile or similar); walls/ceilings in food areas smooth, nonabsorbent, easily cleanable and light colored (HHD: LRV 40%+); wall protection to 4 ft AFF near sinks (e.g., FRP, stainless, tile); no exposed utility lines on floors in new/remodeled establishments; lighting 50 fc at food work surfaces, 20 fc at self-service/handwashing/toilets, 10 fc in storage; shielded/shatter-resistant lamps; hood required for cooking equipment except approved electric ovens/microwaves etc.; public restrooms reachable without passing through kitchen/prep areas.",
+      "submittalItems": [
+        "Room-finish schedule (material + color)",
+        "Lighting levels / shielded fixtures noted",
+        "Ventilation/hood details if cooking"
+      ],
+      "citation": "HHD Food Inspection Plan Review Checklist items 5, 6, 8, 10, 16",
+      "sourceUrl": "https://www.houstonhealth.org/media/36/download",
+      "feeNote": "",
+      "confidence": "medium",
+      "notes": "Same Chapter 20 caveat as health-sinks."
+    },
+    {
+      "id": "food-dealer-permit",
+      "category": "health",
+      "title": "Food dealer's permit and pre-opening inspection",
+      "agency": "Houston Health Department",
+      "appliesWhen": "Before operating any food establishment in the City of Houston.",
+      "requirement": "No person may operate a food establishment without a valid food dealer's permit; renewed annually and kept on premises in public view. After plans are approved and construction is complete, a pre-opening inspection is required; schedule at least 14 business days in advance (832-393-5100), provide contact info for the certified food manager who will be on site, and have approved/stamped plans available. A fee is assessed for each pre-opening inspection.",
+      "submittalItems": [
+        "Food dealer permit application",
+        "Declaration form CE-1380/CE-1381",
+        "Approved/stamped plans on site",
+        "Certified food manager contact info"
+      ],
+      "citation": "HHD 'Opening a Food Establishment'; HPC 'Food Dealer (food establishment operating permit)'",
+      "sourceUrl": "https://www.houstonhealth.org/services/permits/food-permits/opening-food-establishment",
+      "feeNote": "Effective Sept 1, 2025: Low risk $258 / Medium $515 / High $773 (HHD fee-structure changes). HPC service page (hhd1003) still shows older $224.44-$739.44 + admin/inspection fees - conflicting.",
+      "confidence": "high",
+      "notes": "Processing time up to 15 business days (https://www.houstonpermittingcenter.org/hhd1003). Risk category for an espresso/pastry/sandwich shop not confirmed."
+    },
+    {
+      "id": "food-manager-and-handlers",
+      "category": "health",
+      "title": "Certified Food Protection Manager and food handler training",
+      "agency": "Texas DSHS rules (TFER) enforced by Houston Health Department",
+      "appliesWhen": "Operating the establishment.",
+      "requirement": "A certified food protection manager must be present during all hours of operation (exemption only for establishments deemed minimal risk, e.g., only prepackaged food or no exposed TCS food); the original certificate must be posted conspicuously to consumers. All other food employees must complete an accredited food handler course within 30 days of employment; keep certificates on premises.",
+      "submittalItems": [
+        "CFM certificate (posted)",
+        "Food handler certificates on file"
+      ],
+      "citation": "25 TAC 228.31 (Texas Food Establishment Rules, Aug 2021 consolidation)",
+      "sourceUrl": "https://www.dshs.texas.gov/sites/default/files/foodestablishments/pdf/GuidanceDocs/TFER-2021_TAC-228_August-2021.pdf",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Some third-party sites cite '228.33 / 60 days' - that is the superseded 2015 TFER. Houston adopted TFER by reference effective Sept 1, 2025 (https://www.houstonhealth.org/services/permits/food-permits/food-manager-food-handler-certification)."
+    },
+    {
+      "id": "houston-food-rules-tfer",
+      "category": "health",
+      "title": "Houston Food Ordinance (Ch. 20) repealed; FDA Food Code + TFER apply",
+      "agency": "Houston Health Department",
+      "appliesWhen": "Citing food-safety rules for anything after Sept 1, 2025.",
+      "requirement": "Effective September 1, 2025, Houston repealed the Houston Food Ordinance (Chapter 20 - Food and Drugs) and adopted the FDA Model Food Code and Texas Food Establishment Rules by reference (implementing SB 1008). Permit categories and fees now align with DSHS; violations use Priority / Priority Foundation / Core categories.",
+      "submittalItems": [],
+      "citation": "HHD Food Permits page; HHD Food Manager/Food Handler page",
+      "sourceUrl": "https://www.houstonconsumer.org/services/permits/food-permits",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Important for the demo: do NOT cite 'Houston Code Sec. 20-xx' as current law."
+    },
+    {
+      "id": "sprinkler-threshold-a2",
+      "category": "fire",
+      "title": "Automatic sprinkler threshold for Group A-2",
+      "agency": "Houston Fire Department - Fire Marshal's Office (plan review at HPC)",
+      "appliesWhen": "Space is Group A-2 (occupant load 50+).",
+      "requirement": "Sprinklers required throughout stories containing A-2 (and down to exit discharge) where: fire area exceeds 5,000 sq ft; OR fire area occupant load is 100 or more; OR the fire area is on a floor other than a level of exit discharge. A ground-floor coffee shop under 5,000 sq ft with OL < 100 would not trigger this section.",
+      "submittalItems": [
+        "Code analysis stating fire area, OL, and whether sprinklers are required/provided",
+        "Separate sprinkler permit if modifying an existing system"
+      ],
+      "citation": "2021 IBC / IFC Sec. 903.2.1.2 (Houston Building Code 2021)",
+      "sourceUrl": "https://up.codes/viewer/houston/ibc-2021/chapter/9/fire-protection-and-life-safety-systems",
+      "feeNote": "Sprinkler system $97.56 + $4.55/additional head; sprinkler plan review $91.06 min + $2.28/head.",
+      "confidence": "high",
+      "notes": "Houston IFC 901.5.1 (amendment): unlawful to occupy until required fire protection/life safety systems are tested and approved (https://www.houstonpermittingcenter.org/media/9051/download). Existing base-building sprinklers in a strip center must be modified under a separate permit if walls/ceilings change."
+    },
+    {
+      "id": "fire-alarm-threshold",
+      "category": "fire",
+      "title": "Fire alarm thresholds (Group A and Group B)",
+      "agency": "Houston Fire Department - Fire Marshal's Office",
+      "appliesWhen": "Determining whether a manual fire alarm is required.",
+      "requirement": "Group A: manual fire alarm required where the assembly occupant load is 300 or more (model IBC/IFC 907.2.1, not amended by Houston). Group B (Houston-amended 907.2.2): required where combined B occupant load of all floors is 500 or more, or more than 100 persons above/below the lowest level of exit discharge, or the fire area contains an ambulatory care facility. A ~40-seat coffee shop is typically below both thresholds; renovations where a fire alarm system already exists require a separate fire alarm submittal.",
+      "submittalItems": [
+        "Statement on code analysis: fire alarm required? provided?",
+        "Separate fire alarm permit if existing system is modified"
+      ],
+      "citation": "2021 IBC/IFC 907.2.1; Houston Amendments to 2021 IFC/IBC Sec. 907.2.2",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/9051/download",
+      "feeNote": "Fire alarm devices: $91.06 (0-10 devices), $130.08 (11-25), $195.12 (26-200).",
+      "confidence": "medium",
+      "notes": "The 300 figure is the model-code value (confirmed via search summary, full 907.2.1 text not loaded). Houston's IFC amendment document goes from 907.2 to 907.2.2, i.e., 907.2.1 is unamended."
+    },
+    {
+      "id": "egress-exits-signs-lighting",
+      "category": "fire",
+      "title": "Number of exits, exit signs and emergency lighting",
+      "agency": "Houston Permitting Center - Building Code Enforcement / Fire Marshal",
+      "appliesWhen": "Egress design for the tenant space.",
+      "requirement": "A space may have a single exit only if its occupant load is 49 or less and the common path of egress travel is within Table 1006.2.1 limits (A: 75 ft; B: 75-100 ft depending on OL and sprinklers); at 50+ occupants two exits are required. Exit signs are required, except in rooms/areas that require only one exit or exit access. Emergency (means-of-egress) illumination on emergency power is required in rooms and spaces that require two or more exits or exit access doorways.",
+      "submittalItems": [
+        "Egress plan: exits, travel distance, common path of egress travel",
+        "Exit sign and emergency light locations"
+      ],
+      "citation": "2021 IBC Sec. 1006.2.1 & Table 1006.2.1; 1013.1; 1008.3.3",
+      "sourceUrl": "https://up.codes/viewer/houston/ibc-2021/chapter/10/means-of-egress",
+      "feeNote": "",
+      "confidence": "medium",
+      "notes": "Exact common-path numbers for Group B vary by OL (<=30 vs >30) and sprinklers - verify against the code text before displaying precise values."
+    },
+    {
+      "id": "occupant-load-posting",
+      "category": "fire",
+      "title": "Post occupant load in assembly spaces",
+      "agency": "Houston Fire Department / Building Code Enforcement",
+      "appliesWhen": "Space is classified as assembly (Group A-2).",
+      "requirement": "Every room or space that is an assembly occupancy shall have its occupant load posted in a conspicuous place near the main exit or exit access doorway. The CO itself also states the design occupant load.",
+      "submittalItems": [
+        "Occupant load sign (field item)"
+      ],
+      "citation": "2021 IBC Sec. 1004.9; Houston IBC 111.2 item 10",
+      "sourceUrl": "https://up.codes/viewer/houston/ibc-2021/chapter/10/means-of-egress",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "If the space qualifies as Group B under 303.1.1, 1004.9 posting does not strictly apply. Houston Fire-specific sign lettering rules seen only in third-party summaries - not verified."
+    },
+    {
+      "id": "hood-suppression-and-extinguishers",
+      "category": "fire",
+      "title": "Commercial cooking hood suppression and portable extinguishers",
+      "agency": "Houston Fire Department - Fire Permits Office",
+      "appliesWhen": "If any cooking produces grease-laden vapors (Type I hood).",
+      "requirement": "Automatic fire-extinguishing systems for commercial cooking must be listed/labeled (pre-engineered wet/dry chemical tested to UL 300) and installed per the code, NFPA 96, listing and manufacturer's instructions. Portable fire extinguishers must follow NFPA 10 and HFD LSB Standard No. 01. Espresso and pastry service using listed electric equipment may not need a Type I hood - confirm with the mechanical reviewer.",
+      "submittalItems": [
+        "Hood/exhaust drawings (if applicable)",
+        "Hood suppression system submittal/permit (if applicable)",
+        "Extinguisher locations"
+      ],
+      "citation": "Houston Amendments to 2021 IFC Sec. 904.13, 906.2",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/9051/download",
+      "feeNote": "Type 1 Hood Fire Suppression System $97.56 each (2026 fee schedule).",
+      "confidence": "medium",
+      "notes": "Fire Permits Office: 832.394.8811, hfd.permitoffice@houstontx.gov (https://www.houstonpermittingcenter.org/fire-permits-office)."
+    },
+    {
+      "id": "tdlr-project-registration",
+      "category": "accessibility",
+      "title": "TDLR Architectural Barriers project registration (TABS) - $50,000+",
+      "agency": "Texas Department of Licensing and Regulation (TDLR)",
+      "appliesWhen": "Estimated construction cost of $50,000 or more.",
+      "requirement": "Register the project in TABS, pay the registration fee, and designate a Registered Accessibility Specialist (RAS). Construction documents must be submitted for review not later than the 20th day after plans and specifications are issued. Houston's CE-1105 requires the Texas EAB (TABS) number as a plan attachment for projects exceeding $50,000.",
+      "submittalItems": [
+        "TDLR/TABS project registration number (EAB #)",
+        "Designated RAS",
+        "Construction documents submitted to RAS for TAS review"
+      ],
+      "citation": "Tex. Gov't Code Ch. 469; 16 TAC 68.50; TDLR Architectural Barriers Program Requirements (EAB Form-002); Form CE-1105",
+      "sourceUrl": "https://www.tdlr.texas.gov/ab/info/registration-help-sheet.pdf",
+      "feeNote": "$175 registration ($300 late), non-refundable; RAS review/inspection fees are private-market.",
+      "confidence": "high",
+      "notes": "16 TAC 68.50 read via Cornell LII (https://www.law.cornell.edu/regulations/texas/16-Tex-Admin-Code-SS-68-50). TDLR does not administer or enforce the federal ADA."
+    },
+    {
+      "id": "ras-inspection",
+      "category": "accessibility",
+      "title": "RAS inspection within one year of completion",
+      "agency": "TDLR / Registered Accessibility Specialist",
+      "appliesWhen": "Registered projects.",
+      "requirement": "The owner must have the building inspected for TAS compliance not later than the first anniversary of completion of construction. After inspection, the owner must correct deficiencies (rule: corrective modifications by the 270th day after the inspection report).",
+      "submittalItems": [
+        "Written request for inspection to RAS",
+        "Owner/agent present at inspection"
+      ],
+      "citation": "Tex. Gov't Code Sec. 469.105; 16 TAC 68.52",
+      "sourceUrl": "https://statutes.capitol.texas.gov/docs/gv/htm/gv.469.htm",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "469.105 wording confirmed via search summaries of the statute; 68.52 via Cornell LII (https://www.law.cornell.edu/regulations/texas/16-Tex-Admin-Code-SS-68-52)."
+    },
+    {
+      "id": "tas-doors-routes-entrances",
+      "category": "accessibility",
+      "title": "Accessible route, entrance and door clear width",
+      "agency": "TDLR (TAS) / RAS; also reviewed by building official",
+      "appliesWhen": "New/altered elements and the path of travel.",
+      "requirement": "Door openings: 32\" minimum clear width (TAS 404.2.3); walking surfaces 36\" minimum (403.5.1); door hardware 34-48\" AFF (404.2.7); interior door opening force 5 lbf max (404.2.9); accessible route from accessible parking, public sidewalks and transit stops to the entrance (206.2.1); at least 60% of public entrances accessible (206.4.1). Alterations to primary function areas require an accessible path of travel (incl. restrooms, parking, drinking fountains) unless cost exceeds 20% of the primary-function alteration (202.4).",
+      "submittalItems": [
+        "Accessible route plan",
+        "Door schedule with clear widths and hardware",
+        "Maneuvering clearances at doors"
+      ],
+      "citation": "2012 TAS 202.4, 206.2.1, 206.4.1, 403.5.1, 404.2.3, 404.2.7, 404.2.9",
+      "sourceUrl": "https://www.tdlr.texas.gov/ab/2012abtas4.htm",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Section text verified in the official 2012 TAS PDF (https://tdlr.texas.gov/ab/2012TAS/2012tascomplete.pdf)."
+    },
+    {
+      "id": "tas-dining-and-counters",
+      "category": "accessibility",
+      "title": "Accessible dining surfaces (5%) and service counters",
+      "agency": "TDLR (TAS) / RAS",
+      "appliesWhen": "Seating/standing dining surfaces and order/pickup counters.",
+      "requirement": "At least 5% of seating and standing spaces at dining surfaces must comply with 902 (226.1) and be dispersed (226.2); dining surface tops 28\" min to 34\" max AFF (902.3) with knee and toe clearance per 306 (902.2; knee clearance 27\" high zone). At least one of each type of sales/service counter (e.g., order and pick-up) must comply with 904.4 (227.3): a portion 36\" long min and 36\" high max for parallel approach, or 30\" long min and 36\" high max for forward approach.",
+      "submittalItems": [
+        "Seating plan identifying accessible dining positions (>=5%)",
+        "Counter elevations showing accessible portion"
+      ],
+      "citation": "2012 TAS 226.1, 226.2, 227.3, 902.2, 902.3, 904.4, 306.3",
+      "sourceUrl": "https://www.tdlr.texas.gov/ab/2012abtas9.htm",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "For 40 seats, 5% = 2 accessible seating spaces (round up)."
+    },
+    {
+      "id": "tas-toilet-rooms",
+      "category": "accessibility",
+      "title": "Accessible toilet rooms",
+      "agency": "TDLR (TAS) / RAS",
+      "appliesWhen": "Toilet rooms provided (public restrooms are required for the restaurant).",
+      "requirement": "Each toilet room must comply with 603 (213.2): turning space within the room (603.2.1); water closet centerline 16-18\" from side wall (604.2); seat height 17-19\" (604.4); lavatory rim/counter 34\" max (606.3); where compartments are provided, at least one wheelchair-accessible compartment 60\" wide min (604.8.1.1). If existing rooms don't comply, directional signage to compliant rooms is required (216.8).",
+      "submittalItems": [
+        "Enlarged restroom plans and elevations with clearances and grab bars"
+      ],
+      "citation": "2012 TAS 213.2, 216.8, 603.2.1, 604.2, 604.4, 604.8.1.1, 606.3",
+      "sourceUrl": "https://tdlr.texas.gov/ab/2012TAS/2012tascomplete.pdf",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Federal ADA Title III (2010 ADA Standards) applies independently to restaurants as public accommodations (https://www.ada.gov/law-and-regs/design-standards/2010-stds/)."
+    },
+    {
+      "id": "grease-interceptor",
+      "category": "plumbing",
+      "title": "Grease interceptor with sample well",
+      "agency": "Houston Public Works (plumbing review) and Houston Health Department (FOG program)",
+      "appliesWhen": "Commercial facilities including restaurants that may generate fats, oils and grease (building permit applied for after Aug 31, 2006).",
+      "requirement": "Restaurants and similar facilities must design, install, operate and maintain an interceptor complying with the City of Houston Plumbing Code and install a sample well for inspection and sampling by the health officer. Houston UPC amendments: each interceptor shall have a sample well on the discharge side; food waste disposers and dishwashers shall not discharge into a grease interceptor (unless designed for food waste).",
+      "submittalItems": [
+        "Grease interceptor location, size/sizing calc and detail",
+        "Sample well detail",
+        "Plumbing plan showing which fixtures drain to the interceptor"
+      ],
+      "citation": "Houston Code of Ordinances Ch. 47, Art. XI, Sec. 47-513; Houston Amendments to 2021 UPC Sec. 1009.8, 1014.1.3, 1014.3.5",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/9071/download?inline",
+      "feeNote": "",
+      "confidence": "high",
+      "notes": "Sec. 47-513 text quoted inside HHD plan review checklist item 17 (https://www.houstonhealth.org/media/36/download); Municode page (https://library.municode.com/tx/houston/codes/code_of_ordinances/312514?nodeId=COOR_CH47WASE_ARTXITRTRCEWA_DIV1GE) did not render for direct verification. Whether a low-grease espresso/pastry operation needs a full gravity interceptor vs. a smaller unit is a plan-reviewer call - flag, don't auto-decide."
+    },
+    {
+      "id": "fog-permit-and-maintenance",
+      "category": "plumbing",
+      "title": "FOG (grease trap) generator permit, quarterly pump-out, manifests",
+      "agency": "Houston Health Department - Special Waste Program",
+      "appliesWhen": "Any food establishment with a grease trap/interceptor.",
+      "requirement": "Obtain a Fats, Oils and Grease permit (valid one year from food dealer permit issue date; renew annually). Interceptors must be fully evacuated at least quarterly (every 90 days) unless a Notice of Waiver is approved; keep sample well clean; return generator copy of manifest within 15 days of pump-out and keep manifests on site five years.",
+      "submittalItems": [
+        "FOG permit",
+        "Pump-out manifests (operational)"
+      ],
+      "citation": "HHD Special Waste Generators page; Houston Code Sec. 47-512(b)",
+      "sourceUrl": "https://www.houstonconsumer.org/services/permits/special-waste-permits/special-waste-generators",
+      "feeNote": "FOG permit fee: not found. Citations $250-$2,000 per violation.",
+      "confidence": "high",
+      "notes": "FOG generator permits are the one local permit category HHD kept after the Sept 2025 DSHS alignment."
+    },
+    {
+      "id": "restroom-fixture-count",
+      "category": "plumbing",
+      "title": "Minimum plumbing fixtures (Houston-amended IBC Table 2902.1)",
+      "agency": "Houston Permitting Center - Plumbing review",
+      "appliesWhen": "Restaurant occupancy.",
+      "requirement": "Houston's UPC 422.1 amendment deletes UPC Table 422.1 and requires fixtures per IBC Chapter 29 Table 2902.1 (Houston-amended). Restaurants: water closets 1 per 75 male and 1 per 75 female; lavatories 1 per 200; drinking fountain 1 per 500; 1 service sink. Occupant load split 50/50 by sex. For ~50 occupants: 1 WC + 1 lavatory per sex, 1 service sink, drinking fountain unless water is provided free in containers (2904.3). All water closets must be dual-flush or high-efficiency; when more than one WC is required for males, 50% must be urinals (Houston 2902.8). Public restrooms must be reachable without passing through kitchen/prep/warewashing areas.",
+      "submittalItems": [
+        "Fixture count calculation on plumbing/code sheet",
+        "Restroom plan"
+      ],
+      "citation": "Houston Amendments to 2021 UPC Sec. 422.1; Houston Amendments to 2021 IBC Table 2902.1, Sec. 2902.8, 2904.3",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/sites/g/files/nwywnm431/files/2024-11/2021%20IBC%20Amendments%20(4).pdf",
+      "feeNote": "Plumbing fixture permits $34.24 (1-3), $11.41 each additional.",
+      "confidence": "high",
+      "notes": "Model IBC 2902.2 exceptions for separate-sex facilities (e.g., single-user rooms) were not re-verified in Houston's amendment text - check before claiming unisex rooms satisfy the count."
+    },
+    {
+      "id": "sign-permit",
+      "category": "signs",
+      "title": "On-premise sign permit (Sign Administration)",
+      "agency": "Houston Permitting Center - Sign Administration",
+      "appliesWhen": "Erecting, altering, or repairing an on-premise business sign.",
+      "requirement": "Permits must be obtained before signs are erected, altered or repaired; permits are issued to licensed sign contractors (owner may self-permit limited non-electrical ground signs <=60 sq ft and <=8 ft tall, or wall signs <=16 ft above grade). Max 5 signs per business. Site, construction, electrical (shop + final) and final inspections. Construction permit valid 180 days from site inspection; operating permits renew annually. Signs are permitted separately from the building permit.",
+      "submittalItems": [
+        "Notarized On-Premise Sign Permit application",
+        "Site plan with dimensions from fixed objects",
+        "Survey (new ground signs)",
+        "Engineering (when required)",
+        "Electrical permit application (illuminated signs)",
+        "iPermits Acknowledgement Form",
+        "Plan Review Prerequisites checklist"
+      ],
+      "citation": "HPC Sign Administration; HPC 'Commercial Advertising Sign (On premises)'; Houston Sign Code",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/hpwcode1112",
+      "feeNote": "Operating permit min $69.46; construction min $97.25; plan review $97.25; inspection $97.25; admin $33.56; $0.56/sq ft over 32 sq ft.",
+      "confidence": "high",
+      "notes": "Sign Administration: 832.394.8890, SignAdministration@houstontx.gov (https://www.houstonpermittingcenter.org/building-code-enforcement/sign-administration)."
+    },
+    {
+      "id": "jurisdiction-check",
+      "category": "business",
+      "title": "Confirm the address is inside City of Houston limits",
+      "agency": "City of Houston vs. Harris County",
+      "appliesWhen": "Before anything else.",
+      "requirement": "City of Houston permits (HPC, HHD) apply only inside city limits. Food establishments in unincorporated Harris County, including a municipality's ETJ, must get a permit from Harris County Public Health (separate plan review). Other incorporated cities in the metro have their own permitting.",
+      "submittalItems": [
+        "Verified jurisdiction (city limits check / HCAD)"
+      ],
+      "citation": "Harris County Public Health Food Safety Program",
+      "sourceUrl": "https://publichealth.harriscountytx.gov/Divisions-Offices/Divisions/Environmental-Public-Health/Food-Safety-Program",
+      "feeNote": "",
+      "confidence": "medium",
+      "notes": "No official City 'am I in city limits' lookup URL was verified in this research; Commercial Permitting 101 also advises checking Houston Airport System Tier 1/2 areas and floodplain."
+    },
+    {
+      "id": "sales-tax-permit-and-business-basics",
+      "category": "business",
+      "title": "Texas sales and use tax permit (and other basic registrations)",
+      "agency": "Texas Comptroller of Public Accounts",
+      "appliesWhen": "Selling taxable items (prepared food/drinks) in Texas.",
+      "requirement": "Businesses selling tangible personal property or taxable services in Texas must obtain a sales and use tax permit, post it at the place of business, and file returns. City OBO lists four main requirements: business name registration (DBA with county clerk or SOS filing), Texas sales tax permit, federal EIN, and business personal property rendition with the appraisal district.",
+      "submittalItems": [
+        "Texas sales and use tax permit (posted)",
+        "DBA/entity filing",
+        "EIN",
+        "HCAD business personal property rendition"
+      ],
+      "citation": "Texas Comptroller 'Sales Tax Permit Requirements'; Houston OBO 'Four Main Business Requirements'",
+      "sourceUrl": "https://comptroller.texas.gov/help/sales-tax-registration/requirements.php?category=taxes",
+      "feeNote": "Comptroller: no fee to apply for a permit (per search summary; a security deposit may apply - not verified).",
+      "confidence": "medium",
+      "notes": "OBO page loaded: https://www.houstontx.gov/obo/solutionscenter/four_main_business_requirements.html. Comptroller page seen in search results, not fully loaded."
+    },
+    {
+      "id": "alcohol-not-applicable-flag",
+      "category": "business",
+      "title": "TABC permit only if alcohol is sold (flag)",
+      "agency": "Texas Alcoholic Beverage Commission; City ARA",
+      "appliesWhen": "Only if the coffee shop adds beer/wine.",
+      "requirement": "Selling alcohol requires a TABC permit (e.g., Wine and Beer Retailer's Permit, BG). Houston's CE-1105 also requires an A.R.A. (Administration & Regulatory Affairs) permit or time-stamped application for alcohol-related businesses. Not applicable to a coffee-only shop.",
+      "submittalItems": [
+        "(If alcohol) TABC permit",
+        "(If alcohol) ARA permit/application"
+      ],
+      "citation": "TABC License and Permit Types; Form CE-1105 'A.R.A. Permit'",
+      "sourceUrl": "https://www.tabc.texas.gov/services/tabc-licenses-permits/tabc-license-permit-types/",
+      "feeNote": "Not researched (not applicable).",
+      "confidence": "low",
+      "notes": "TABC page seen in search results only."
+    }
+  ],
+  "processStages": [
+    {
+      "name": "Pre-design due diligence (jurisdiction, deed restrictions, parking, prior COs, utilities, floodplain)",
+      "agency": "Houston Permitting Center / Planning & Development / Harris County Clerk",
+      "typicalDuration": "Not published",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download"
+    },
+    {
+      "name": "TDLR project registration + RAS designation (if cost >= $50,000)",
+      "agency": "TDLR",
+      "typicalDuration": "Construction documents to RAS within 20 days after plans are issued (16 TAC 68.50)",
+      "sourceUrl": "https://www.tdlr.texas.gov/ab/info/registration-help-sheet.pdf"
+    },
+    {
+      "name": "WCR / utility availability letters and impact fees (if capacity changes)",
+      "agency": "Houston Public Works - Utility Analysis / Impact Fee Administration",
+      "typicalDuration": "Not published",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download"
+    },
+    {
+      "name": "iPermits application, ProjectDox upload, pay 25% plan review fee",
+      "agency": "Houston Permitting Center",
+      "typicalDuration": "Not published",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download"
+    },
+    {
+      "name": "Prerequisite screening and multi-discipline plan review (Structural, MEP, Planning, Traffic, Utilities, Health, Fire)",
+      "agency": "Houston Permitting Center + routed departments",
+      "typicalDuration": "Not published for commercial; live 'Oldest Plan (in business days)' on HPC dashboard",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/dashboard"
+    },
+    {
+      "name": "Separate submittals: fire alarm / sprinkler / hood suppression / sign",
+      "agency": "Houston Fire Department Fire Permits Office; Sign Administration",
+      "typicalDuration": "Sign permits: 4-11 business days processing; construction permit valid 180 days",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/hpwcode1112"
+    },
+    {
+      "name": "Permit issuance (remaining 75%), trade permits by licensed contractors",
+      "agency": "Houston Permitting Center",
+      "typicalDuration": "Not published",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download"
+    },
+    {
+      "name": "Construction inspections (structural, plumbing, electrical, mechanical, building final, fire acceptance tests)",
+      "agency": "Building Code Enforcement; Houston Fire Department",
+      "typicalDuration": "Not published",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/media/1926/download"
+    },
+    {
+      "name": "Health pre-opening inspection and food dealer permit",
+      "agency": "Houston Health Department",
+      "typicalDuration": "Schedule pre-opening at least 14 business days in advance; permit processing up to 15 business days",
+      "sourceUrl": "https://www.houstonhealth.org/services/permits/food-permits/opening-food-establishment"
+    },
+    {
+      "name": "Certificate of Occupancy",
+      "agency": "Houston Permitting Center - Occupancy Inspections",
+      "typicalDuration": "Application processing listed as 15 minutes; if discrepancies found, report within one week and 180 days to correct",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/hpwcode1106"
+    },
+    {
+      "name": "RAS accessibility inspection",
+      "agency": "TDLR / RAS",
+      "typicalDuration": "No later than first anniversary of construction completion; corrections by day 270 after report",
+      "sourceUrl": "https://statutes.capitol.texas.gov/docs/gv/htm/gv.469.htm"
+    },
+    {
+      "name": "Operate: FOG permit, sales tax permit posted, CFM on duty",
+      "agency": "HHD Special Waste; Texas Comptroller",
+      "typicalDuration": "FOG and food dealer permits renew annually",
+      "sourceUrl": "https://www.houstonconsumer.org/services/permits/special-waste-permits/special-waste-generators"
+    }
+  ],
+  "fees": [
+    {
+      "item": "Administrative fee (non-refundable), BCE",
+      "amount": "$33.56",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Minimum permit fee, BCE",
+      "amount": "$91.06",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Commercial building permit (valuation table), $7,001-$150,000",
+      "amount": "$47.00 for first $7,000 + $5.36 per additional $1,000 or fraction",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Commercial building permit (valuation table), $150,001-$200,000",
+      "amount": "$815.07 for first $150,000 + $5.03 per additional $1,000",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Illustrative: building permit for $100,000 valuation (computed, not published)",
+      "amount": "~$545.48 ($47.00 + 93 x $5.36); plan review ~$136.37 (25%); plus admin fee. Use HPC Fee Estimator for real quotes.",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "medium"
+    },
+    {
+      "item": "Building permit plan review fee (non-refundable)",
+      "amount": "25% of estimated building permit fee",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Deferred submittals / revisions",
+      "amount": "$94.00 or 15% of original building permit fee, whichever is greater",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Certificate of Occupancy",
+      "amount": "$94.00",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "CO or Life Safety Inspection",
+      "amount": "$537.12 first story; $134.28 each additional story; $0.01/sq ft above 10,000 sq ft",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "CO for individual retail/office space <3,000 sq ft in multi-tenant building",
+      "amount": "$268.56 ($94.00 if done with building core inspection)",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Reinspection fee",
+      "amount": "$94.00 (2026 fee schedule) vs $112.64 (HPC CO service page) - conflicting",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "medium"
+    },
+    {
+      "item": "Fire alarm/detectors permit",
+      "amount": "$91.06 (0-10 devices); $130.08 (11-25); $195.12 (26-200); $3.25 each over 200",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Type 1 hood fire suppression system",
+      "amount": "$97.56 each system",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Fire sprinkler system / plan review",
+      "amount": "$97.56 (up to 25 heads) + $4.55 each additional head; plan review $91.06 min + $2.28/head",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Plumbing fixtures",
+      "amount": "$34.24 (one to three) + $11.41 each additional; plumbing minimum $97.56",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "HVAC alterations",
+      "amount": "2.0% of valuation + $47.00 ($47.00 per lease space for ducts/grilles under $500)",
+      "sourceUrl": "https://houstonpermittingcenter.org/media/2636/download?inline=",
+      "confidence": "high"
+    },
+    {
+      "item": "Food dealer permit (effective Sept 1, 2025)",
+      "amount": "Low risk $258; Medium $515; High $773",
+      "sourceUrl": "https://www.houstonhealth.org/media/12526/download",
+      "confidence": "high"
+    },
+    {
+      "item": "Food: general inspection / required reinspection / amend permit / late renewal",
+      "amount": "$150 / $200 / $125 / $100",
+      "sourceUrl": "https://www.houstonhealth.org/media/12526/download",
+      "confidence": "high"
+    },
+    {
+      "item": "Food dealer permit (older figures still on HPC service page)",
+      "amount": "$224.44-$739.44 base + $33.56 admin + $112.57 or $225.14 inspection",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/hhd1003",
+      "confidence": "low"
+    },
+    {
+      "item": "Health plan review fee",
+      "amount": "not found",
+      "sourceUrl": "https://www.houstonhealth.org/services/permits/food-permits/opening-food-establishment",
+      "confidence": "low"
+    },
+    {
+      "item": "Health pre-opening inspection fee",
+      "amount": "not found (page says a fee is assessed per pre-opening inspection)",
+      "sourceUrl": "https://www.houstonhealth.org/services/permits/food-permits/opening-food-establishment",
+      "confidence": "low"
+    },
+    {
+      "item": "FOG (grease trap) permit",
+      "amount": "not found",
+      "sourceUrl": "https://www.houstonconsumer.org/services/permits/special-waste-permits/special-waste-generators",
+      "confidence": "low"
+    },
+    {
+      "item": "TDLR architectural barriers project registration",
+      "amount": "$175 ($300 late), non-refundable",
+      "sourceUrl": "https://www.tdlr.texas.gov/ab/info/registration-help-sheet.pdf",
+      "confidence": "high"
+    },
+    {
+      "item": "On-premise sign permit",
+      "amount": "Operating min $69.46; construction min $97.25; plan review $97.25; inspection $97.25; admin $33.56; $0.56/sq ft over 32",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/hpwcode1112",
+      "confidence": "high"
+    },
+    {
+      "item": "Texas sales and use tax permit",
+      "amount": "$0 application fee (search summary of Comptroller site; not fully loaded)",
+      "sourceUrl": "https://comptroller.texas.gov/help/sales-tax-registration/requirements.php?category=taxes",
+      "confidence": "medium"
+    }
+  ],
+  "pitchClaims": [
+    {
+      "claim": "Houston launched a 30-day residential-permitting pilot in 2025 to reduce delays.",
+      "verdict": "TRUE",
+      "evidence": "Mayor's Office press release dated July 3, 2025 announces the 30-Day Residential Permitting Pilot to issue residential permits within 30 business days or less (selected single-family projects, three-cycle review, applicant responses within 7 business days). HPC later reported first-week results (68% of 29 projects approved in two cycles; HPC dates the launch July 7, 2025).",
+      "sourceUrl": "https://www.houstontx.gov/moc/2025/30-day-residential-permit-pilot.html"
+    },
+    {
+      "claim": "The Houston Permitting Center publishes daily performance metrics including projects waiting for review and oldest plans in the system.",
+      "verdict": "TRUE",
+      "evidence": "HPC Dashboard page shows 'Total Plans in System for Review' and 'Oldest Plan (in business days)', overall and per business unit, updated daily. Commercial Permitting 101 describes it as an at-a-glance view of 'daily performance including total plans in the system for review and number of business days of oldest plan.' Use the label 'plans in the system for review' rather than 'projects waiting'.",
+      "sourceUrl": "https://www.houstonpermittingcenter.org/dashboard"
+    },
+    {
+      "claim": "The City's business guide says determining required permits/agencies/docs is difficult.",
+      "verdict": "TRUE",
+      "evidence": "Houston OBO New Business Guide: 'With a multitude of city and state rules and regulations it can be difficult to understand which permits or licenses you need...'. It says permits or licenses, not agencies/documents; the Houston Business Portal permits page does not use the word 'difficult' (it says knowing what is required 'will save time, money and aggravation'). Quote the guide precisely.",
+      "sourceUrl": "https://www.houstontx.gov/obo/solutionscenter/guides/NEW_BUSINESS_GUIDE.pdf"
+    },
+    {
+      "claim": "The Mayor's Office of Innovation & Performance mission is using data to improve City operations and efficiency.",
+      "verdict": "TRUE",
+      "evidence": "Paraphrase is fair, but not literal. Mission: 'create lasting and substantial improvements in the way the City operates.' Data and efficiency appear in its core values ('Use data and facts to guide business decisions'; 'Collaborate with City departments to do business more efficiently'), not in the mission sentence itself.",
+      "sourceUrl": "https://innovation.houstontx.gov/"
+    }
+  ]
+}
